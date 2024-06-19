@@ -1,0 +1,22 @@
+﻿@model IEnumerable<FinanceReport.Models.POCO.Report>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Net Report</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Net Amount</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.NetAmount</td>
+            </tr>
+        }
+    </tbody>
+</table>

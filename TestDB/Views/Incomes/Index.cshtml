@@ -1,0 +1,34 @@
+﻿@model IEnumerable<FinanceReport.Models.POCO.Income>
+
+@{
+    ViewBag.Title = "Incomes";
+}
+
+<h2>Incomes</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Income Source</th>
+            <th>Income Amount</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.IncomeSource</td>
+                <td>@item.IncomeAmount</td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.IncomeId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.IncomeId })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,36 @@
+﻿@model IEnumerable<FinanceReport.Models.POCO.Expense>
+
+@{
+    ViewBag.Title = "Expenses";
+}
+
+<h2>Expenses</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Expense Name</th>
+            <th>Expense Amount</th>
+            <th>Expense Category</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ExpenseName</td>
+                <td>@item.ExpenseAmount</td>
+                <td>@item.ExpenseCategoryName</td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ExpenseId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ExpenseId })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
